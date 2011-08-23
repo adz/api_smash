@@ -8,7 +8,7 @@ require 'bundler/setup'
 Bundler.setup
 Bundler.require :default, :test
 
-require 'smash'
+require 'api_smash'
 require 'rr'
 
 RSpec.configure do |config|

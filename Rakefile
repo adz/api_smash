@@ -4,7 +4,7 @@ require 'rake/rdoctask'
 require 'rspec/core'
 require 'rspec/core/rake_task'
 
-spec = eval(File.read('api_smith.gemspec'))
+spec = eval(File.read('api_smash.gemspec'))
 
 Rake::GemPackageTask.new(spec) do |pkg|
   pkg.gem_spec = spec

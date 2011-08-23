@@ -1,21 +1,21 @@
 require 'hashie/dash'
 
-# Extends Hashie::Dash to suppress unknown keys when passing data, but
-# is configurable to raises an UnknownKey exception when accessing keys in the
-# Smash.
-#
-# APISmith::Smash is a subclass of Hashie::Dash that adds several features
+# ApiSmash is a subclass of Hashie::Dash that adds several features
 # making it suitable for use in writing api clients. Namely,
 #
 # * The ability to silence exceptions on unknown keys (vs. Raising NoMethodError)
 # * The ability to define conversion of incoming data via transformers
 # * The ability to define aliases for keys via the from parameter.
 #
+# It extends Hashie::Dash to suppress unknown keys when passing data, but
+# is configurable to raises an UnknownKey exception when accessing keys in the
+# ApiSmash.
+#
 # @author Darcy Laycock
 # @author Steve Webb
 #
 # @example a simple, structured object with the most common use cases.
-#   class MyResponse < APISmith::Smash
+#   class MyResponse < ApiSmash
 #     property :full_name, :from => :fullName
 #     property :value_percentage, :transformer => :to_f
 #     property :short_name
@@ -34,7 +34,7 @@ require 'hashie/dash'
 #   p response.value_percentage # => 10.5
 #   p response.created.class # => Date
 #
-class Smash < Hashie::Dash
+class ApiSmash < Hashie::Dash
     
   # When we access an unknown property, we raise the unknown key instead of
   # a NoMethodError on undefined keys so that we can do a target rescue.
@@ -64,7 +64,7 @@ class Smash < Hashie::Dash
     defined?(@exception_on_unknown_key) && @exception_on_unknown_key
   end
 
-  # Sets whether or not Smash should raise NoMethodError on an unknown key.
+  # Sets whether or not ApiSmash should raise NoMethodError on an unknown key.
   # Sets it for the current class.
   #
   # @param [Boolean] value true to throw exceptions.
@@ -89,7 +89,7 @@ class Smash < Hashie::Dash
   end
 
   # Hook to make it inherit instance variables correctly. Called once
-  # the Smash is inherited from in another object to maintain state.
+  # the ApiSmash is inherited from in another object to maintain state.
   def self.inherited(klass)
     super
     klass.instance_variable_set '@transformers',             transformers.dup
@@ -119,7 +119,7 @@ class Smash < Hashie::Dash
     end
   end
 
-  # Does this Smash class contain a specific property (key),
+  # Does this ApiSmash class contain a specific property (key),
   # or does it have a key mapping (via :from)
   #
   # @param [Symbol] key the property to test for.
@@ -133,7 +133,7 @@ class Smash < Hashie::Dash
   # object, primarily for use as transformers.
   #
   # @param [Object] the object to attempt to convert.
-  # @return [Array<Smash>, Smash] The converted object / array of objects if
+  # @return [Array<ApiSmash>, ApiSmash] The converted object / array of objects if
   #   possible, otherwise nil.
   def self.call(value)
     if value.is_a?(Array)
@@ -205,7 +205,7 @@ class Smash < Hashie::Dash
   # @param [String, Symbol] key the property key
   # @param [Object] value the incoming value of the given property
   # @return [Object] the transformed value for the given key
-  # @see Smash.transformer_for
+  # @see ApiSmash.transformer_for
   def transform_property(key, value)
     transformation = self.class.transformers[key.to_s]
     transformation ? transformation.call(value) : value

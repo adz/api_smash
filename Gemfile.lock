@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    smash (1.0.0)
+    api_smash (1.0.0)
       hashie (~> 1.0)
 
 GEM
@@ -43,6 +43,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  api_smash!
   awesome_print
   bluecloth
   fuubar
@@ -51,5 +52,4 @@ DEPENDENCIES
   rr
   rspec (~> 2.0)
   ruby-debug
-  smash!
   yard
