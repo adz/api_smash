@@ -2,17 +2,15 @@
 lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 
-#require 'api_smash/version'
-
 Gem::Specification.new do |s|
   s.name        = "api_smash"
-  s.version     = "1.0.0" #ApiSmash::VERSION
+  s.version     = "1.0.1"
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Darcy Laycock", "Steve Webb"]
-  s.email       = ["sutto@thefrontiergroup.com.au"]
-  s.homepage    = "http://github.com/thefrontiergroup"
+  s.authors     = ["Darcy Laycock", "Steve Webb", "Adam Davies"]
+  s.email       = [""]
+  s.homepage    = "http://github.com/adz/api_smash"
   s.summary     = "A dash with transformers"
-  s.description = "Hashie dash api_smash"
+  s.description = "An enhanced Hash useful for API clients.  Extracted from API Smith, and extends Hashie::Dash."
   s.required_rubygems_version = ">= 1.3.6"
 
   s.add_dependency 'hashie',   '~> 1.0'
