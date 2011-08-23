@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe APISmith::Smash do
+describe Smash do
 
-  let(:my_smash) { Class.new(APISmith::Smash) }
+  let(:my_smash) { Class.new(Smash) }
 
   describe 'transformers' do
 
@@ -70,7 +70,7 @@ describe APISmith::Smash do
 
   describe 'inheritance' do
 
-    let(:parent_smash) { Class.new(APISmith::Smash) }
+    let(:parent_smash) { Class.new(Smash) }
     let(:client_smash) { Class.new(parent_smash) }
 
     it 'should not overwrite parent class transformers' do
@@ -145,7 +145,7 @@ describe APISmith::Smash do
     end
 
     it 'should default to ignoring unknown key errors' do
-      klass = Class.new(APISmith::Smash)
+      klass = Class.new(Smash)
       klass.exception_on_unknown_key?.should be_false
       expect do
         klass.new[:my_imaginary_key] = 'of doom'
