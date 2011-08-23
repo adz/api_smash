@@ -1,10 +1,10 @@
 
-## Smash - A Smarter Hash
+## ApiSmash - A Smarter Hash
 
-The Smash class is a 'smarter' (or, alternatively, structured) hash. Built on top of
-`Hashie::Dash`, `Smash` adds several features that make it useful for making objects
+The ApiSmash class is a 'smarter' (or, alternatively, structured) hash. Built on top of
+`Hashie::Dash`, `ApiSmash` adds several features that make it useful for making objects
 that represent an external api response. On top of [the base Hashie::Dash feature set](https://github.com/intridea/hashie/blob/master/lib/hashie/dash.rb),
-Smash adds:
+ApiSmash adds:
 
 ### Configuration of alternative names for fields
 
@@ -18,7 +18,7 @@ a wide range of external schemes (e.g. always underscoring the field name).
 ### Configurable transformers
 
 Essentially, any object (e.g. a lambda, a class or something else) that responds to `#call` can be used
-to transform incoming data into a useable format. More importantly, your smash classes will also respond
+to transform incoming data into a useable format. More importantly, your api_smash classes will also respond
 to `#call` meaning they can intelligently be used as transformers for other classes, making complex / nested
 objects simple and declarative.
 
@@ -27,7 +27,7 @@ as the value.
 
 ### A well defined (and documented) api
 
-Making it possible for you to hook in at multiple stages to further specialise your Smash objects for
+Making it possible for you to hook in at multiple stages to further specialise your ApiSmash objects for
 specific API use cases.
 
 ## Contributors
@@ -35,7 +35,7 @@ specific API use cases.
 API Smith was written by [Darcy Laycock](http://github.com/sutto), and [Steve Webb](http://github.com/swebb)
 from [The Frontier Group](http://github.com/thefrontiergroup), as part of a bigger project with [Filter Squad](http://github.com/filtersquad).
 
-This 'Smash' library was extracted from it.
+This 'ApiSmash' library was extracted from it.
 
 
 ## Contributing
@@ -55,4 +55,4 @@ Other than that, our guidelines very closely match the GemCutter guidelines [her
 ## License
 
 API Smith is released under the MIT License (see the [license file](LICENSE)) and is
-copyright Filter Squad, 2011.  Therefore so is 'Smash'.
+copyright Filter Squad, 2011.  Therefore so is 'ApiSmash'.
